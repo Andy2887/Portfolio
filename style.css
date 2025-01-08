@@ -1,0 +1,281 @@
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 62.5%; /* Makes 1rem = 10px */
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fafafa;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    top: 0;
+    width: 100%;
+    padding: 2rem 4rem;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-links {
+    display: flex;
+    gap: 4rem;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #333;
+    text-decoration: none;
+    font-size: 1.6rem;
+    font-weight: 500;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #333;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.logo {
+    font-size: 2.4rem;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+/* Section Layout */
+section {
+    padding: 8rem 4rem;
+    min-height: 100vh;
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+/* Profile Section */
+#profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6rem;
+    padding-top: 6rem;
+}
+
+.pic-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.pic-container img {
+    width: 100%;
+    max-width: 60rem;
+    border-radius: 2rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+
+.profile_text_container {
+    flex: 1;
+    text-align: center;
+}
+
+.profile_text_p1 {
+    font-size: 2rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.profile_text_h1 {
+    font-size: 4.8rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    line-height: 1.2;
+}
+
+.profile_text_p2 {
+    font-size: 2rem;
+    color: #666;
+    margin-bottom: 3rem;
+}
+
+/* Buttons */
+.button-container {
+    display: flex;
+    gap: 2rem;
+}
+
+button {
+    padding: 1.2rem 3rem;
+    font-size: 1.6rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.resume-btn {
+    background-color: #333;
+    color: white;
+}
+
+.contact-btn {
+    background-color: transparent;
+    border: 2px solid #333;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Social Icons */
+.social-container {
+    display: flex;
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.social-container img {
+    width: 4rem;
+    height: 4rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.social-container img:hover {
+    transform: translateY(-3px);
+}
+
+
+#about {
+    background-color: #fff;
+    padding: 8rem 4rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border-radius: 2rem;
+}
+
+
+
+.section-title {
+    font-size: 3.6rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 4rem;
+    text-align: center;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 5rem;
+    height: 0.3rem;
+    background-color: #333;
+}
+
+.about-content {
+    max-width: 80rem;
+    margin: 0 auto;
+}
+
+.about-text {
+    font-size: 1.6rem;
+    line-height: 2.5;
+    color: #666;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#experience {
+    padding: 8rem 4rem;
+}
+
+.experience-content {
+    display: flex;
+    justify-content: center;
+    gap: 8rem;
+    margin-top: 4rem;
+}
+
+.experience-column {
+    flex: 1;
+    max-width: 40rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.experience-column:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.experience-subtitle {
+    font-size: 2.4rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.skills-list {
+    list-style: none;
+}
+
+.skill-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    font-size: 1.6rem;
+    color: #666;
+}
+
+.skill-icon {
+    width: 2.4rem;
+    height: 2.4rem;
+}
+
+@media (max-width: 768px) {
+    .experience-content {
+        flex-direction: column;
+        gap: 4rem;
+    }
+
+    .experience-column {
+        max-width: 100%;
+    }
+}
