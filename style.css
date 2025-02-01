@@ -529,3 +529,92 @@ button:hover {
 .project-card:nth-child(3) {
     animation-delay: 0.4s;
 }
+
+/* Mobile Navigation Styles */
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px;
+    background-color: #333;
+    transition: all 0.3s ease;
+}
+
+@media screen and (max-width: 768px) {
+    /* Navigation */
+    .hamburger {
+        display: block;
+        z-index: 100;
+    }
+
+    .nav-links {
+        position: fixed;
+        right: -100%;
+        top: 0;
+        height: 100vh;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: 0.5s ease;
+        z-index: 99;
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-links li {
+        margin: 2rem 0;
+    }
+
+    /* Hamburger Animation */
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Profile Section */
+    #profile {
+        padding: 2rem;
+        margin-top: 6rem;
+    }
+
+    .pic-container img {
+        max-width: 25rem;
+    }
+
+    /* Sections */
+    section {
+        padding: 4rem 2rem;
+    }
+
+    /* Button Container */
+    .button-container {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    /* Experience Grid */
+    .experience-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
