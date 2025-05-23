@@ -212,7 +212,9 @@ button:hover {
     color: #666;
     transform: translateY(20px);
     animation: fadeInUp 0.6s ease forwards;
+    margin-bottom: 2rem; /* Add space between paragraphs */
 }
+
 
 
 @keyframes fadeInUp {
@@ -234,64 +236,107 @@ button:hover {
     margin-top: 4rem;
 }
 
+/* Updated Experience Card Styling */
 .experience-card {
-    display: flex;
-    align-items: flex-start;
-    gap: 2rem;
     background-color: #fafafa;
-    padding: 3rem;
     border-radius: 2rem;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 
+.experience-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 2rem;
+}
+
 .company-logo {
-    width: 8rem;
-    height: 8rem;
+    width: 6rem;
+    height: 6rem;
     object-fit: cover;
     border-radius: 1rem;
 }
 
-.experience-details {
+.experience-title-details {
     flex: 1;
 }
 
 .experience-role {
-    font-size: 2.2rem;
+    font-size: 2rem;
     font-weight: 600;
-    color: #333;
     margin-bottom: 0.5rem;
 }
 
 .company-name {
-    font-size: 1.8rem;
-    font-weight: 500;
+    font-size: 1.6rem;
     color: #666;
     margin-bottom: 0.5rem;
 }
 
 .experience-date {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     color: #888;
-    margin-bottom: 1.5rem;
+}
+
+.experience-body {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.experience-image {
+    flex: 0 0 50%;
+}
+
+.work-image {
+    width: 100%;
+    border-radius: 1rem;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    max-height: 350px; /* Add this to control height if needed */
+    object-fit: cover;
 }
 
 .experience-description {
+    flex: 1;
     font-size: 1.6rem;
-    color: #666;
+    color: #555;
     line-height: 1.6;
 }
 
-@media (max-width: 768px) {
-    .experience-card {
+.experience-description p {
+    margin-bottom: 1.5rem;
+}
+
+.experience-details {
+    margin-top: 2rem;
+    color: #666;
+    font-size: 1.5rem;
+}
+
+.full-width {
+    width: 100%;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    .experience-body {
         flex-direction: column;
-        align-items: center;
-        text-align: center;
     }
     
-    .company-logo {
+    .experience-image {
+        flex: 0 0 100%;
         margin-bottom: 2rem;
+    }
+    
+    .experience-header {
+        flex-direction: column;
+        text-align: center;
     }
 }
 
