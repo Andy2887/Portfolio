@@ -306,7 +306,7 @@ button:hover {
     flex: 1;
     font-size: 1.6rem;
     color: #555;
-    line-height: 1.6;
+    line-height: 1.8;
 }
 
 .experience-description p {
@@ -341,14 +341,13 @@ button:hover {
 }
 
 #experience {
-    padding: 1rem 4rem;
+    padding: 8rem 4rem;
 }
 
 .experience-content {
     display: flex;
     justify-content: center;
     gap: 8rem;
-    margin-bottom: 10vh;
 }
 
 .experience-column {
@@ -402,7 +401,7 @@ button:hover {
 
 /* Contact Section */
 #contact{
-    margin-bottom: 7vh;
+    padding: 4rem 4rem 8rem 4rem;
 }
 
 .section__text__p1 {
@@ -436,7 +435,6 @@ button:hover {
     display: flex;
     justify-content: center;
     gap: 4rem;
-    margin-top: 4rem;
 }
 
 .contact-info-container {
@@ -489,33 +487,30 @@ button:hover {
 
 /* Projects Section */
 #projects {
-    padding: 4rem 4rem;
-    background-color: #fff;
+    padding: 0rem 4rem;
+    background-color: #fafafa;
 }
 
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
-    gap: 4rem;
-    margin-top: 6rem;
-}
-
-.project-card {
+.projects-list {
+    max-width: 90rem;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    background-color: #fafafa;
+    gap: 4rem;
+}
+
+.project-item {
+    background-color: #fff;
     border-radius: 2rem;
     padding: 3rem;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.6s ease forwards;
+    position: relative;
 }
 
-.project-card:hover {
-    transform: translateY(-10px);
+
+.project-content {
+    padding-right: 20rem; /* Space for buttons */
+    margin-bottom: 2rem;
 }
 
 .project-title {
@@ -527,52 +522,98 @@ button:hover {
 
 .project-description {
     font-size: 1.6rem;
-    color: #666;
     line-height: 1.6;
+    color: #666;
     margin-bottom: 2rem;
 }
 
 .project-tech {
-    font-size: 1.4rem;
-    color: #888;
-    margin-top: auto;
-    margin-bottom: 2vh;
-}
-
-.project-links {
     display: flex;
-    gap: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
-.project-link {
-    padding: 1rem 2rem;
-    font-size: 1.4rem;
+.tech-tag {
+    background-color: #f0f0f0;
     color: #333;
+    padding: 0.5rem 1.2rem;
+    border-radius: 2rem;
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.project-buttons {
+    position: absolute;
+    bottom: 3rem;
+    right: 3rem;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.demo-btn, .repo-btn {
+    padding: 1rem 2rem;
+    border-radius: 0.8rem;
     text-decoration: none;
-    border: 2px solid #333;
-    border-radius: 1rem;
+    font-size: 1.4rem;
+    font-weight: 500;
     transition: all 0.3s ease;
+    border: 2px solid transparent;
 }
 
-.project-link:hover {
+.demo-btn {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+.demo-btn:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.repo-btn {
     background-color: #333;
-    color: #fff;
-    transform: translateY(-2px);
+    color: white;
+    border-color: #333;
 }
 
-@media (max-width: 768px) {
-    .projects-grid {
-        grid-template-columns: 1fr;
+.repo-btn:hover {
+    background-color: #555;
+    border-color: #555;
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+    .project-content {
+        padding-right: 0;
+        margin-bottom: 4rem;
+    }
+
+    .project-buttons {
+        position: static;
+        justify-content: flex-end;
+        margin-top: 2rem;
+    }
+
+    .projects-list {
+        gap: 3rem;
+    }
+
+    .project-item {
+        padding: 2.5rem;
     }
 }
 
-/* Animation delay for cards */
-.project-card:nth-child(2) {
-    animation-delay: 0.2s;
-}
+@media screen and (max-width: 480px) {
+    .project-buttons {
+        flex-direction: column;
+        align-items: flex-end;
+    }
 
-.project-card:nth-child(3) {
-    animation-delay: 0.4s;
+    .demo-btn, .repo-btn {
+        width: 12rem;
+        text-align: center;
+    }
 }
 
 /* Mobile Navigation Styles */
