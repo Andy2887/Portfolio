@@ -552,34 +552,35 @@ button:hover {
 
 .demo-btn, .repo-btn {
     padding: 1rem 2rem;
-    border-radius: 0.8rem;
+    border-radius: 2rem;
     text-decoration: none;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     font-weight: 500;
     transition: all 0.3s ease;
-    border: 2px solid transparent;
+    border: none;
+    display: inline-block;
 }
 
 .demo-btn {
-    background-color: #007bff;
+    background-color: #333;
     color: white;
-    border-color: #007bff;
+    margin-right: 1rem;
 }
 
 .demo-btn:hover {
-    background-color: #0056b3;
-    border-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .repo-btn {
-    background-color: #333;
-    color: white;
-    border-color: #333;
+    background-color: transparent;
+    color: #333;
+    border: 2px solid #333;
 }
 
 .repo-btn:hover {
-    background-color: #555;
-    border-color: #555;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* Mobile Responsiveness */
