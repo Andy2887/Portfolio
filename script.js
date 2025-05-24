@@ -1,3 +1,4 @@
+// Navigation functionality
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
 
@@ -21,3 +22,140 @@ document.addEventListener('click', (e) => {
         navLinks.classList.remove('active');
     }
 });
+
+// Scroll animations and modern interactions
+document.addEventListener('DOMContentLoaded', function() {
+    // Scroll progress indicator
+    const progressBar = document.createElement('div');
+    progressBar.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 3px;
+        background: linear-gradient(90deg, #0ea5e9, #14b8a6);
+        z-index: 9999;
+        transition: width 0.1s ease;
+    `;
+    document.body.appendChild(progressBar);
+
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.pageYOffset;
+        const docHeight = document.body.offsetHeight - window.innerHeight;
+        const scrollPercent = (scrollTop / docHeight) * 100;
+        progressBar.style.width = scrollPercent + '%';
+    });
+
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    // Add scroll animations to elements
+    const animatedElements = document.querySelectorAll('.experience-card, .project-item, .about-text, .skill-item');
+    animatedElements.forEach((el, index) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = `opacity 0.3s ease ${index * 0.1}s, transform 0.3s ease ${index * 0.1}s`;
+        observer.observe(el);
+    });
+
+    // Typewriter effect for profile text
+    const typewriterElement = document.querySelector('.profile_text_h1');
+    if (typewriterElement) {
+        const text = typewriterElement.textContent;
+        typewriterElement.textContent = '';
+        typewriterElement.style.borderRight = '3px solid #0ea5e9';
+        typewriterElement.style.animation = 'blink 1s infinite';
+        
+        let i = 0;
+        const typeInterval = setInterval(() => {
+            typewriterElement.textContent += text.charAt(i);
+            i++;
+            if (i >= text.length) {
+                clearInterval(typeInterval);
+                setTimeout(() => {
+                    typewriterElement.style.borderRight = 'none';
+                    typewriterElement.style.animation = 'none';
+                }, 1000);
+            }
+        }, 100);
+    }
+
+    // Floating animation for profile picture
+    const profilePic = document.querySelector('.pic-container img');
+    if (profilePic) {
+        profilePic.style.animation = 'float 3s ease-in-out infinite';
+    }
+
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Dynamic navbar styling on scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+            navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+            navbar.style.backdropFilter = 'blur(10px)';
+            navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+        } else {
+            navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+            navbar.style.backdropFilter = 'none';
+            navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+        }
+    });
+});
+
+// Add CSS animations via JavaScript
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+    }
+    
+    @keyframes blink {
+        0%, 50% { border-color: #0ea5e9; }
+        51%, 100% { border-color: transparent; }
+    }
+    
+    .experience-card {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .project-item {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .skill-item {
+        transition: all 0.3s ease;
+        cursor: default;
+    }
+    
+    .skill-item:hover {
+        transform: translateX(10px);
+    }
+`;
+document.head.appendChild(style);
