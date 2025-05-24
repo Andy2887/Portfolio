@@ -46,29 +46,29 @@ document.addEventListener('DOMContentLoaded', function() {
         progressBar.style.width = scrollPercent + '%';
     });
 
-    // Intersection Observer for scroll animations
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
+    // // Intersection Observer for scroll animations
+    // const observerOptions = {
+    //     threshold: 0.1,
+    //     rootMargin: '0px 0px -50px 0px'
+    // };
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
+    // const observer = new IntersectionObserver((entries) => {
+    //     entries.forEach(entry => {
+    //         if (entry.isIntersecting) {
+    //             entry.target.style.opacity = '1';
+    //             entry.target.style.transform = 'translateY(0)';
+    //         }
+    //     });
+    // }, observerOptions);
 
-    // Add scroll animations to elements
-    const animatedElements = document.querySelectorAll('.experience-card, .project-item, .about-text, .skill-item');
-    animatedElements.forEach((el, index) => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = `opacity 0.3s ease ${index * 0.1}s, transform 0.3s ease ${index * 0.1}s`;
-        observer.observe(el);
-    });
+    // // Add scroll animations to elements
+    // const animatedElements = document.querySelectorAll('.experience-card, .project-item, .about-text, .skill-item');
+    // animatedElements.forEach((el, index) => {
+    //     el.style.opacity = '0';
+    //     el.style.transform = 'translateY(30px)';
+    //     el.style.transition = `opacity 0.3s ease ${index * 0.1}s, transform 0.3s ease ${index * 0.1}s`;
+    //     observer.observe(el);
+    // });
 
     // Typewriter effect for profile text
     const typewriterElement = document.querySelector('.profile_text_h1');
