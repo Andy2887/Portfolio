@@ -92,12 +92,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 100);
     }
 
-    // Floating animation for profile picture
-    const profilePic = document.querySelector('.pic-container img');
-    if (profilePic) {
-        profilePic.style.animation = 'float 3s ease-in-out infinite';
-    }
-
 
     // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -131,10 +125,6 @@ document.addEventListener('DOMContentLoaded', function() {
 // Add CSS animations via JavaScript
 const style = document.createElement('style');
 style.textContent = `
-    @keyframes float {
-        0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(-10px); }
-    }
     
     @keyframes blink {
         0%, 50% { border-color: #0ea5e9; }

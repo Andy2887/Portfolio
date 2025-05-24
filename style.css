@@ -228,10 +228,6 @@ section:not(#profile) {
     border: 4px solid var(--neutral-white);
 }
 
-.pic-container img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
-}
 
 .profile_text_container {
     text-align: center;
