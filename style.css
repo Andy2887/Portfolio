@@ -129,7 +129,7 @@ nav {
 }
 
 .nav-links a {
-    color: #333;
+    color: #666;
     text-decoration: none;
     font-size: 1.8rem;
     font-weight: 500;
@@ -154,6 +154,9 @@ nav {
 }
 
 .logo {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     font-size: 2.4rem;
     font-weight: 600;
     letter-spacing: -0.5px;
