@@ -144,8 +144,5 @@ style.textContent = `
         cursor: default;
     }
     
-    .skill-item:hover {
-        transform: translateX(10px);
-    }
 `;
 document.head.appendChild(style);
