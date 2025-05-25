@@ -529,7 +529,7 @@ button:hover::before {
 
 .experience-description p {
     margin-bottom: var(--space-md);
-    text-align: justify;
+    text-align: left;
 }
 
 .experience-description p:last-child {
