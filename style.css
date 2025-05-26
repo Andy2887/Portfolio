@@ -803,6 +803,8 @@ button:hover::before {
     transition: all var(--transition-normal);
     border: none;
     display: inline-block;
+    justify-content: center;
+    align-items: center;
     box-shadow: var(--shadow-sm);
 }
 
@@ -841,6 +843,8 @@ button:hover::before {
         position: static;
         justify-content: flex-end;
         margin-top: 2rem;
+        flex-direction: row;
+        flex-wrap: wrap;
     }
 
     .projects-list {
@@ -855,11 +859,12 @@ button:hover::before {
 @media screen and (max-width: 480px) {
     .project-buttons {
         flex-direction: column;
-        align-items: flex-end;
+        justify-content: center;
+        align-items: center;
     }
 
     .demo-btn, .repo-btn {
-        width: 12rem;
+        width: auto;
         text-align: center;
     }
 }
