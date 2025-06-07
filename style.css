@@ -723,6 +723,7 @@ button:hover::before {
     }
 
     .contact-info-container {
+        flex-direction: column;
         width: 100%;
         max-width: 40rem;
         justify-content: center;
@@ -882,7 +883,6 @@ button:hover::before {
     .project-buttons {
         flex-direction: column;
         justify-content: center;
-        align-items: center;
     }
 
     .demo-btn, .repo-btn {
