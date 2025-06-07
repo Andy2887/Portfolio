@@ -749,12 +749,23 @@ button:hover::before {
     padding: 3rem;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
+.project-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
 
 .project-content {
     padding-right: 20rem; /* Space for buttons */
     margin-bottom: 2rem;
+    flex-grow: 1;
 }
 
 .project-title {
@@ -839,6 +850,12 @@ button:hover::before {
         margin-bottom: 4rem;
     }
 
+    .project-image {
+        height: auto;
+        max-height: 250px;
+        margin-bottom: 1.5rem;
+    }
+
     .project-buttons {
         position: static;
         justify-content: flex-end;
@@ -857,6 +874,11 @@ button:hover::before {
 }
 
 @media screen and (max-width: 480px) {
+    .project-image {
+        height: auto;
+        max-height: 200px;
+    }
+
     .project-buttons {
         flex-direction: column;
         justify-content: center;
