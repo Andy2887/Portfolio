@@ -117,6 +117,21 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+/* Ensure all interactive elements show pointer cursor */
+a, button, .hamburger, .social-container a, .social-container img, 
+.demo-btn, .repo-btn, .contact-info-container a,
+[onclick], [role="button"], input[type="button"], input[type="submit"] {
+    cursor: pointer !important;
+}
+
+/* Set default cursor for text elements, but allow interactive elements to keep pointer cursor */
+body, p, h1, h2, h3, h4, h5, h6, span, div, section, article, aside, nav, header, footer, main, 
+.section-title, .profile_text_h1, .profile_text_p1, .profile_text_p2, .about-text, 
+.experience-role, .company-name, .experience-date, .experience-description, 
+.project-title, .project-description, .tech-tag, .skill-item {
+    cursor: default;
+}
+
 /* Modern Navigation */
 nav {
     display: flex;
@@ -180,12 +195,8 @@ nav {
     font-size: var(--font-size-2xl);
     font-weight: var(--font-weight-bold);
     letter-spacing: -0.5px;
-    cursor: pointer;
+    cursor: default;
     transition: all var(--transition-normal);
-}
-
-.logo:hover {
-    transform: scale(1.05);
 }
 
 /* Section Layout */
@@ -281,7 +292,7 @@ button {
     font-weight: var(--font-weight-semibold);
     border: none;
     border-radius: var(--radius-full);
-    cursor: pointer;
+    cursor: pointer !important; /* Ensure buttons always show pointer cursor */
     transition: all var(--transition-normal);
     font-family: inherit;
     letter-spacing: 0.5px;
@@ -346,7 +357,7 @@ button:hover::before {
 .social-container img {
     width: 5rem;
     height: 5rem;
-    cursor: pointer;
+    cursor: pointer !important; /* Ensure social icons show pointer cursor */
     transition: all var(--transition-normal);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-md);
