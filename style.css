@@ -566,6 +566,7 @@ button:hover::before {
     
     .experience-header {
         flex-direction: column;
+        align-items: center;
         text-align: center;
         gap: var(--space-md);
     }
@@ -578,6 +579,9 @@ button:hover::before {
     
     .experience-title-details {
         text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
     
     .company-name::after {
