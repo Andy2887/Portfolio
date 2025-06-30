@@ -1,4 +1,86 @@
 /* ===========================================
+   INTRO ANIMATION STYLES
+   =========================================== */
+
+/* Intro overlay that covers the entire screen */
+.intro-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    opacity: 1;
+    transition: opacity 1s ease-out;
+}
+
+/* Hide the overlay after animation */
+.intro-overlay.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* The "Who Am I?" text */
+.intro-text {
+    font-family: "Poppins", sans-serif;
+    font-size: 4rem;
+    font-weight: 300;
+    color: #ffffff;
+    text-align: center;
+    opacity: 0;
+    animation: fadeInAndSpin 4s ease-in-out forwards;
+    transform-origin: center;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    letter-spacing: 0.1em;
+}
+
+/* Animation keyframes */
+@keyframes fadeInAndSpin {
+    /* Fade in phase (0-20%) */
+    0% {
+        opacity: 0;
+        transform: rotate(0deg) scale(0.8);
+    }
+    20% {
+        opacity: 1;
+        transform: rotate(0deg) scale(1);
+    }
+    /* Spinning phase with acceleration (20-70%) */
+    70% {
+        opacity: 1;
+        transform: rotate(1080deg) scale(1);
+    }
+    /* Fade out phase (70-100%) */
+    100% {
+        opacity: 0;
+        transform: rotate(1080deg) scale(0.8);
+    }
+}
+
+/* Prevent body scroll during intro */
+body.intro-active {
+    overflow: hidden;
+}
+
+/* Responsive design for intro text */
+@media (max-width: 768px) {
+    .intro-text {
+        font-size: 2.5rem;
+        padding: 0 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .intro-text {
+        font-size: 2rem;
+    }
+}
+
+/* ===========================================
    DESIGN SYSTEM - COLOR PALETTE & TYPOGRAPHY
    =========================================== */
 

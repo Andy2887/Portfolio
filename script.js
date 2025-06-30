@@ -1,3 +1,54 @@
+// ===========================================
+// INTRO ANIMATION CONTROLLER
+// ===========================================
+
+// Intro animation sequence
+document.addEventListener('DOMContentLoaded', function() {
+    const introOverlay = document.getElementById('introOverlay');
+    const introText = document.getElementById('introText');
+    const body = document.body;
+    
+    // Check if user prefers reduced motion
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    // Check if intro has already been shown in this session
+    const hasSeenIntro = sessionStorage.getItem('hasSeenIntro');
+    
+    // Skip intro if user prefers reduced motion or has already seen it
+    if (prefersReducedMotion || hasSeenIntro) {
+        introOverlay.style.display = 'none';
+        body.classList.remove('intro-active');
+        return;
+    }
+    
+    // Prevent scrolling during intro
+    body.classList.add('intro-active');
+    
+    // Start the animation sequence
+    function startIntroAnimation() {
+        // Step 1: Text animation is handled by CSS animation (4 seconds)
+        // Step 2: After 3.5 seconds, start fading out the background
+        setTimeout(() => {
+            introOverlay.classList.add('fade-out');
+        }, 3500);
+        
+        // Step 3: After 4.5 seconds, remove the overlay completely and restore scroll
+        setTimeout(() => {
+            introOverlay.style.display = 'none';
+            body.classList.remove('intro-active');
+            // Mark intro as seen for this session
+            sessionStorage.setItem('hasSeenIntro', 'true');
+        }, 4500);
+    }
+    
+    // Start the animation immediately when page loads
+    startIntroAnimation();
+});
+
+// ===========================================
+// NAVIGATION FUNCTIONALITY
+// ===========================================
+
 // Navigation functionality
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
